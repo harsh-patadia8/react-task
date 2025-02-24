@@ -19,6 +19,9 @@ function NavBar() {
                     <Navbar.Text className='mx-1'>
                         <Link to="/admin/dashboard">Admin dashboard</Link>
                     </Navbar.Text>
+                    <Navbar.Text className='mx-1'>
+                        <Link to="/admin/login">Admin login</Link>
+                    </Navbar.Text>
                 </Nav>
                 <Navbar.Collapse className="justify-content-end">
                     <Navbar.Text>
