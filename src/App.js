@@ -1,24 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
-
+import AdminDashboard from './components/admin/Dashboard';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NavBar from './components/Navbar/Nav';
+import Home from './components/Products/Product';
+import Cart from './components/cart/Cart';
+import { store } from './redux/Store'
+import { Provider } from 'react-redux'
+import AdminLogin from './components/admin/AdminLogin';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          {/* <Route path="/" element={<Layout />}> */}
+
+          {/* admin routes */}
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+
+          {/* user routes */}
+          <Route path='/products' element={<Home />} />
+          <Route path="/user/cart" element={<Cart />} />
+          {/* <Route path="contact" element={<Contact />} /> */}
+          {/* <Route path="*" element={<NoPage />} /> */}
+          {/* </Route> */}
+        </Routes>
+      </BrowserRouter>
+    </Provider>
+
+
   );
 }
 
